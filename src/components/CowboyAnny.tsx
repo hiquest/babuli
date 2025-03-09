@@ -1,9 +1,18 @@
-const CowboyAnny = () => {
+import Cowboy from "./Cowboy";
+
+type Props = {
+  // in percent from 0 to 100
+  value: number;
+};
+
+const CowboyAnny = ({ value }: Props) => {
   return (
-    <div className="cowboy-anny">
-      <img src="/cowboy1.png" className="main" />
-      <img src="/head_anny.png" className="head" />
-    </div>
+    <Cowboy
+      className="cowboy-anny"
+      cowboyPath="/c1.png"
+      facePath="/head_anny.png"
+      value={value}
+    />
   );
 };
 
