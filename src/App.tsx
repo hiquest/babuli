@@ -1,6 +1,7 @@
 import CowboyAnny from "./components/CowboyAnny";
 import CowboyChris from "./components/CowboyChris";
 import CowboyMom from "./components/CowboyMom";
+import CowboyTanya from "./components/CowboyTanya";
 
 const startDate = new Date("2025-03-01");
 const endDate = new Date("2025-08-31");
@@ -24,6 +25,11 @@ const data = {
     target: 74_000,
     current: 76_000,
   },
+  tanya: {
+    start: 80_000,
+    target: 74_000,
+    current: 76_000,
+  },
 };
 
 const anny = data.anny;
@@ -36,6 +42,11 @@ const annyValue = Math.floor(
 const vt = data.vt;
 const momValue = Math.floor(
   ((vt.current - vt.start) / (vt.target - vt.start)) * 100
+);
+
+const tan = data.tanya;
+const tanyaValue = Math.floor(
+  ((tan.current - tan.start) / (tan.target - tan.start)) * 100
 );
 
 function App() {
@@ -65,6 +76,7 @@ function App() {
         <CowboyAnny value={annyValue} />
         <CowboyMom value={momValue} />
         <CowboyChris value={50} />
+        <CowboyTanya value={tanyaValue} />
       </div>
 
       <div className="eiffel">

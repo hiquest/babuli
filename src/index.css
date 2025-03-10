@@ -3,7 +3,7 @@
   line-height: 1.5;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #2a3257;
+  background-color: #4d963d;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -32,6 +32,7 @@
 #root {
   max-width: 1280px;
   height: 100vh;
+  overflow-y: hidden;
 }
 
 a {
@@ -105,9 +106,13 @@ button:focus-visible {
 .cowboy-anny {
   left: 0%;
 
+  img.main {
+    transform: scale(0.6);
+  }
+
   img.head {
-    width: 42px;
-    height: 42px;
+    width: 52px;
+    height: 52px;
     top: 4px;
     left: 40px;
     transform: rotate(-18deg);
@@ -115,25 +120,49 @@ button:focus-visible {
 }
 
 .cowboy-mom {
-  left: 25%;
+  left: 20%;
+
+  img.main {
+    transform: scale(0.6);
+  }
 
   img.head {
-    width: 48px;
-    height: 48px;
-    top: 6px;
-    left: 42px;
+    width: 68px;
+    height: 68px;
+    top: -18px;
+    left: 26px;
   }
 }
 
 .cowboy-chris {
-  left: 50%;
+  left: 40%;
+
+  img.main {
+    transform: scale(0.6);
+  }
 
   img.head {
-    width: var(--unit5);
-    height: var(--unit5);
-    top: 4px;
-    left: 52px;
+    width: 68px;
+    height: 68px;
+    top: -24px;
+    left: 32px;
     transform: rotate(28deg);
+  }
+}
+
+.cowboy-tanya {
+  left: 60%;
+
+  img.main {
+    transform: scale(0.6);
+  }
+
+  img.head {
+    width: 68px;
+    height: 68px;
+    top: -14px;
+    left: 32px;
+    transform: rotate(8deg);
   }
 }
 
@@ -180,7 +209,7 @@ button:focus-visible {
   width: var(--unit10);
   height: var(--unit10);
 
-  bottom: -3%;
+  bottom: 0;
   left: 50%;
   transform: translate(-50%, 0);
 
