@@ -9,6 +9,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  --vh: 1vh;
+
   --unit0: 4px;
   --unit1: 8px;
   --unit2: 12px;
@@ -30,7 +32,7 @@
 
 #root {
   max-width: 1280px;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   overflow-y: hidden;
 }
 
@@ -159,9 +161,9 @@ button:focus-visible {
   img.head {
     width: 62px;
     height: 62px;
-    top: -10px;
+    top: -12px;
     left: 36px;
-    transform: rotate(-18deg);
+    transform: rotate(4deg);
   }
 }
 
@@ -169,30 +171,42 @@ button:focus-visible {
   left: 20%;
 
   img.main {
-    transform: scale(0.6);
+    transform: scale(0.7);
   }
 
   img.head {
     width: 68px;
     height: 68px;
-    top: -18px;
+    top: -12px;
     left: 26px;
   }
 }
 
 .cowboy-chris {
-  left: 40%;
-
   img.main {
-    transform: scale(0.6);
+    transform: scale(0.9);
   }
 
   img.head {
     width: 68px;
     height: 68px;
-    top: -24px;
-    left: 32px;
-    transform: rotate(28deg);
+    top: -28px;
+    left: 24px;
+    transform: rotate(-10deg);
+  }
+}
+
+.cowboy-sof {
+  img.main {
+    transform: scale(0.9);
+  }
+
+  img.head {
+    width: 68px;
+    height: 68px;
+    top: -38px;
+    left: 24px;
+    transform: rotate(-10deg);
   }
 }
 
@@ -206,9 +220,9 @@ button:focus-visible {
   img.head {
     width: 68px;
     height: 68px;
-    top: -14px;
-    left: 32px;
-    transform: rotate(8deg);
+    top: -12px;
+    left: 28px;
+    transform: rotate(0deg);
   }
 }
 

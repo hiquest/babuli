@@ -1,9 +1,10 @@
-import { motion } from "motion/react";
 import { useState } from "react";
 import CowboyAnny from "./components/CowboyAnny";
+import CowboyChris from "./components/CowboyChris";
 import CowboyMom from "./components/CowboyMom";
 import CowboyTanya from "./components/CowboyTanya";
 import CowboyYanis from "./components/CowboyYanis";
+import Sof from "./components/Sof";
 
 const startDate = new Date("2025-03-01");
 const endDate = new Date("2025-08-31");
@@ -61,47 +62,35 @@ const yanisValue = Math.floor(
   ((yanis.current - yanis.start) / (yanis.target - yanis.start)) * 100
 );
 
-const corners = {
-  topLeft: { top: 0, left: 0 },
-  topRight: { top: 0, left: "calc(100% - 50px)" },
-  bottomLeft: { top: "calc(100% - 50px)", left: 0 },
-  bottomRight: { top: "calc(100% - 50px)", left: "calc(100% - 50px)" },
-};
-
 function App() {
-  const [startPressed, setStartPressed] = useState(false);
   const [chrisVisible, setChrisVisible] = useState(false);
+  const [sofVisible, setSofVisible] = useState(false);
+  const [musicPlaying, setMusicPlaying] = useState(false);
 
-  const [position, setPosition] = useState(corners.topLeft);
+  function runKid() {
+    playMusic();
 
-  // Returns a random corner key
-  const getRandomCorner = (corners) => {
-    const keys = Object.keys(corners);
-    return corners[keys[Math.floor(Math.random() * keys.length)]];
-  };
-
-  const startAnimation = () => {
-    // Set the initial position
-    const fromCorner = getRandomCorner(corners);
-    // Set the target position
-    let toCorner = getRandomCorner(corners);
-
-    while (fromCorner === toCorner) {
-      toCorner = getRandomCorner(corners);
+    if (chrisVisible || sofVisible) {
+      return;
     }
 
-    // Show cowboy at a random corner
-    setPosition(fromCorner);
-    setChrisVisible(true);
+    const rand = Math.random();
+    if (rand > 0.5) {
+      setChrisVisible(true);
+    } else {
+      setSofVisible(true);
+    }
+  }
 
-    // Move to the next random corner after a short delay
-    setTimeout(() => {
-      setPosition(toCorner);
+  function playMusic() {
+    if (musicPlaying) {
+      return;
+    }
+    setMusicPlaying(true);
 
-      // Hide cowboy after moving
-      setTimeout(() => setChrisVisible(false), 2000); // Adjust duration based on your needs
-    }, 2000);
-  };
+    const audio = new Audio("song.mp3");
+    audio.play();
+  }
 
   return (
     <div className="track">
@@ -115,7 +104,6 @@ function App() {
       <div className="inner-track">
         <CowboyAnny value={annyValue} />
         <CowboyMom value={momValue} />
-        {/* <CowboyChris value={50} />*/}
         <CowboyTanya value={tanyaValue} />
         <CowboyYanis value={yanisValue} />
 
@@ -125,25 +113,15 @@ function App() {
         <div className="dline dline-4"></div>
         <div className="dline dline-5"></div>
 
-        {chrisVisible && (
-          <motion.div
-            className="cowboy cowboy-chris"
-            initial={position}
-            animate={position}
-            transition={{ duration: 2 }} // Adjust duration for smoother animations
-          >
-            <img src="/chris.png" className="head" />
-            <img src="/c3.png" className="main" />
-          </motion.div>
-        )}
+        <CowboyChris
+          visible={chrisVisible}
+          onStop={() => setChrisVisible(false)}
+        />
+
+        <Sof visible={sofVisible} onStop={() => setSofVisible(false)} />
       </div>
 
-      <div
-        className="eiffel"
-        onClick={() => {
-          startAnimation();
-        }}
-      >
+      <div className="eiffel" onClick={runKid}>
         <img src="/eifel.png" />
       </div>
       <div className="rainbow-div"></div>

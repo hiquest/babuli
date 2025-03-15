@@ -5,16 +5,21 @@ type Props = {
   visible: boolean;
   onStop: () => void;
 };
-const CowboyChris = ({ visible, onStop }: Props) => {
+
+const Sof = ({ visible, onStop }: Props) => {
   if (!visible) {
     return null;
   }
 
   const [c1, c2] = getRandomPair();
 
+  if (!visible) {
+    return null;
+  }
+
   return (
     <motion.div
-      className="cowboy cowboy-chris"
+      className="cowboy cowboy-sof"
       initial={c1}
       animate={c2}
       transition={{
@@ -22,11 +27,12 @@ const CowboyChris = ({ visible, onStop }: Props) => {
         ease: "easeInOut",
       }}
       onAnimationComplete={onStop}
+      key={Math.random()}
     >
-      <img src="/chris.png" className="head" />
-      <img src="/dino.png" className="main" />
+      <img src="/sof.png" className="head" />
+      <img src="/cat.png" className="main" />
     </motion.div>
   );
 };
 
-export default CowboyChris;
+export default Sof;
