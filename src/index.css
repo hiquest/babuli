@@ -30,10 +30,18 @@
   --unit16: 960px;
 }
 
-#root {
-  max-width: 1280px;
-  height: calc(var(--vh, 1vh) * 100);
+body {
+  margin: 0;
+  height: 100vh;
+
+  @supports (-webkit-touch-callout: none) {
+    height: 100dvh;
+  }
   overflow-y: hidden;
+}
+
+#root {
+  height: 100%;
 }
 
 a {
@@ -44,11 +52,6 @@ a {
 
 a:hover {
   color: #535bf2;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
 }
 
 b {
