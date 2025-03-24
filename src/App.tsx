@@ -21,22 +21,22 @@ const data = {
   anny: {
     start: 75_000,
     target: 70_000,
-    current: 73_800,
+    current: 73_300,
   },
   vt: {
     start: 78_000,
     target: 72_000,
-    current: 76_700,
+    current: 78_000,
   },
   tanya: {
     start: 77_500,
     target: 73_000,
-    current: 77_100,
+    current: 76_800,
   },
   yanis: {
     start: 67_500,
     target: 63_000,
-    current: 66_900,
+    current: 67_600,
   },
 };
 
