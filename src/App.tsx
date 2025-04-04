@@ -21,22 +21,22 @@ const data = {
   anny: {
     start: 75_000,
     target: 70_000,
-    current: 73_300,
+    current: 72_100,
   },
   vt: {
     start: 78_000,
     target: 72_000,
-    current: 78_000,
+    current: 79_700,
   },
   tanya: {
     start: 77_500,
     target: 73_000,
-    current: 76_800,
+    current: 76_300,
   },
   yanis: {
     start: 67_500,
     target: 63_000,
-    current: 67_600,
+    current: 66_700,
   },
 };
 
@@ -44,22 +44,22 @@ const anny = data.anny;
 
 // calculate current progress in %
 const annyValue = Math.floor(
-  ((anny.current - anny.start) / (anny.target - anny.start)) * 100
+  ((anny.current - anny.start) / (anny.target - anny.start)) * 100,
 );
 
 const vt = data.vt;
 const momValue = Math.floor(
-  ((vt.current - vt.start) / (vt.target - vt.start)) * 100
+  ((vt.current - vt.start) / (vt.target - vt.start)) * 100,
 );
 
 const tan = data.tanya;
 const tanyaValue = Math.floor(
-  ((tan.current - tan.start) / (tan.target - tan.start)) * 100
+  ((tan.current - tan.start) / (tan.target - tan.start)) * 100,
 );
 
 const yanis = data.yanis;
 const yanisValue = Math.floor(
-  ((yanis.current - yanis.start) / (yanis.target - yanis.start)) * 100
+  ((yanis.current - yanis.start) / (yanis.target - yanis.start)) * 100,
 );
 
 function App() {
